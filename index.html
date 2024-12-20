@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Welcome to Guan Jian's personal website. Learn about him and try the simple calculator.">
+    <meta name="keywords" content="Guan Jian, personal website, calculator, hobbies, coding">
+    <meta name="author" content="Guan Jian">
+    <title>Guan Jian</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f9f9f9;
+        }
+        .header {
+            background-color: #4a4a4a;
+            text-align: center;
+            padding: 20px;
+            color: white;
+        }
+        .header img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .content {
+            background-color: #ffffff;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            line-height: 1.8;
+        }
+        .content p {
+            margin: 10px 0;
+            color: #333;
+        }
+        .calculator {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f0f8ff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .calculator input, .calculator select {
+            width: calc(25% - 10px);
+            padding: 10px;
+            margin: 5px;
+            font-size: 16px;
+        }
+        .calculator button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 10px;
+            background-color: #4a4a4a;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .calculator button:hover {
+            background-color: #333;
+        }
+        .footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #4a4a4a;
+            color: white;
+            font-size: 14px;
+            margin-top: auto;
+        }
+        .footer a {
+            color: #add8e6;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <div class="header">
+        <img alt="Guan Jian" src="https://i.ytimg.com/vi/fFNOi0usz00/maxresdefault.jpg">
+        <h1>Welcome to Guan Jian's Website</h1>
+    </div>
+
+    <!-- Content Section -->
+    <div class="content">
+        <p>Hi, this is just for the people who don't know me.</p>
+        <p>I am a normal student of Han Chiang, student ID 231263, and this is a website for me.</p>
+        <p>If you want to get to know me, just send a WhatsApp. My phone number is at the bottom!</p>
+        <p>My hobby is watching anime and playing video games, especially Valorant. But I have UEC exams, so wait for me until I am in Form 4.</p>
+        <p>Another hobby is learning coding and science, but not textbook science.</p>
+
+        <!-- Calculator Section -->
+        <div class="calculator">
+            <h2>Simple Calculator</h2>
+            <input type="number" id="num1" placeholder="Enter first number">
+            <input type="number" id="num2" placeholder="Enter second number">
+            <select id="operation">
+                <option value="add">+</option>
+                <option value="subtract">-</option>
+                <option value="multiply">×</option>
+                <option value="divide">÷</option>
+            </select>
+            <button onclick="calculate()">Calculate</button>
+            <p id="result"></p>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="footer">
+        <p>Phone number: <strong>016-422-5075</strong>. Feel free to text, but not call.</p>
+        <p>This website is owned by Guan Jian.</p>
+        <p>Special thanks to <a href="#">@leeroufaye</a> and <a href="#">@teoh_6969</a> for helping with the website.</p>
+    </div>
+
+    <script>
+        function calculate() {
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            const operation = document.getElementById('operation').value;
+
+            if (isNaN(num1) || isNaN(num2)) {
+                document.getElementById('result').innerText = 'Please enter valid numbers.';
+                return;
+            }
+
+            let result;
+            switch (operation) {
+                case 'add':
+                    result = num1 + num2;
+                    break;
+                case 'subtract':
+                    result = num1 - num2;
+                    break;
+                case 'multiply':
+                    result = num1 * num2;
+                    break;
+                case 'divide':
+                    result = num2 !== 0 ? num1 / num2 : 'Error: Division by zero';
+                    break;
+                default:
+                    result = 'Invalid operation.';
+            }
+            document.getElementById('result').innerText = `The result is: ${result}`;
+        }
+    </script>
+
+</body>
+</html>
